@@ -6,7 +6,7 @@ var InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 var WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin');
 var getClientEnvironment = require('./env');
 var paths = require('./paths');
-
+const Dotenv = require('dotenv-webpack');
 
 
 // Webpack uses `publicPath` to determine where the app is being served from.
@@ -212,6 +212,7 @@ module.exports = {
     new InterpolateHtmlPlugin({
       PUBLIC_URL: publicUrl
     }),
+    new Dotenv(),
     // Generates an `index.html` file with the <script> injected.
     new HtmlWebpackPlugin({
       inject: true,
